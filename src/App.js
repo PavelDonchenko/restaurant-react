@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Header from "./components/Header";
 import './scss/app.scss';
-import './js/libs/dynamic_adapt';
+import './assets/dynamic_adapt.js';
 
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart/Cart";
