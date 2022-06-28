@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Header from "./components/Header";
-import Banner from "./components/Banner";
 import './scss/app.scss';
 import './js/libs/dynamic_adapt';
 
-import Categories from "./components/Categories";
-import ColdDishes from "./components/ColdDishes";
-import HotDishes from "./components/HotDishes";
-import About from "./components/About";
-import Map from "./components/Map";
+import Home from "./Pages/Home";
+import Cart from "./Pages/Cart/Cart";
 import Footer from "./components/Footer";
+
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
 
 
 function App() {
@@ -18,17 +19,13 @@ function App() {
       <div className="wrapper">
         <Header />
         <main className="page">
-          <Banner />
-          <Categories />
-          <ColdDishes />
-          <HotDishes />
-          <About />
-          <Map />
-
+          <Routes>
+            <Route path = '/' element =  {<Home />} />
+            <Route path = '/cart' element =  {<Cart />} />
+          </Routes>
         </main>
         <Footer />
       </div>
-
     </div>
   );
 }
