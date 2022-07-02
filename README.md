@@ -9,3 +9,4 @@ backend - MockApi
 react-content-loader
 Redux-toolkit
 
+![Alt text](https://github.com/PavelDonchenko/restaurant-react/blob/master/restaurant.png)
