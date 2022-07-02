@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "img/dish1.jpg",
+    "title": "Гусь",
+    "types": "hotMeals",
+    "text": "Фаршированный яблоками",
+    "price": 230,
+    "category": "hotMeals",
+    "weight": 210
+  },
+  {
+    "id": 2,
+    "imageUrl": "img/dish2.jpg",
+    "title": "Утка",
+    "types": "hotMeals",
+    "text": "Запеченная со сливами",
+    "price": 230,
+    "category": "hotMeals",
+    "weight": 212
+  },
+  {
+    "id": 3,
+    "imageUrl": "img/dish3.jpg",
+    "title": "Кролик",
+    "types": "hotMeals",
+    "text": "В собстенном соусе",
+    "price": 340,
+    "category": "hotMeals",
+    "weight": 216
+  },
+  {
+    "id": 4,
+    "imageUrl": "img/dish4.jpg",
+    "title": "Цыпленок",
+    "types": "hotMeals",
+    "text": "Фаршированный яблоками с корицей",
+    "price": 493,
+    "category": "hotMeals",
+    "weight": 310
+  },
+  {
+    "id": 5,
+    "imageUrl": "img/dish5.jpg",
+    "title": "Креветки",
+    "types": "hotMeals",
+    "text": "С морской солью",
+    "price": 760,
+    "category": "hotMeals",
+    "weight": 860
+  }
+]

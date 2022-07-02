@@ -1,0 +1,97 @@
+//====================================================================================================
+.footer {
+    background: linear-gradient(270.7deg, #44403f 0.4%, #211f20 100%);
+    // .footer__container
+    &__container {
+        padding: rem(26) rem(0);
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    // .footer__btn-up
+    &__btn-up {
+        position: absolute;
+        left: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 64px;
+        color: #fff;
+        margin-right: rem(55);
+        @media (max-width:$mobile){
+            left: 20px;
+            top: 30%;
+        }
+    }
+   
+}
+
+.logo-wrapper {
+    display: block;
+    margin-right: 86px;
+    margin-left: 159px;
+    @media (max-width:$tablet){
+        margin: 0 auto;
+        text-align: center;
+    }
+    // .logo-wrapper__logo
+    &__logo {
+        display: block;
+        font-weight: 700;
+        font-size: 25px;
+        letter-spacing: 0.15em;
+        color: #ffffff;
+        margin-bottom: 15px;
+        @media (max-width:$tablet){
+            margin-bottom: 25px;
+        }
+    }
+    // .logo-wrapper__copyright
+    &__copyright {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        margin-bottom: 7px;
+    }
+   
+}
+.footer-logo-link{
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    a{
+        display: block;
+        margin-bottom: 3px;
+        line-height: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease 0s;
+        &:hover{
+            color: $mainColor;
+            border-bottom: 1px solid rgba(255, 255, 255, 1);
+        }
+    }
+
+}
+.menu-footer {
+    display: flex;
+    flex-wrap: wrap;
+    // .menu-footer__item
+    &__item {
+        @include adaptiveValue("margin-right",40 ,10 );
+        margin-bottom: rem(20);
+        a{
+            font-weight: 500;
+            font-size: 20px;
+            color: #FFFFFF;
+            transition: all 0.3s ease 0s;
+            &:hover{
+                color: #7c7272;
+            }
+        }
+    }
+    @media (max-width:$tablet){
+        flex-direction: column;
+        margin-top: 50px;
+    }
+}
+
+//====================================================================================================
