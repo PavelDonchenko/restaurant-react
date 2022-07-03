@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { useSelector } from 'react-redux';
 import Banner from '../components/Banner';
 import DishesBlock from "../components/DishesBlock";
 import About from "../components/About";
@@ -15,12 +15,12 @@ import { SearchContext } from '../App';
 
 
 
-
 function Home() {
+    const activeCategories = useSelector(state => state.categorySlice.activeCategories); //redux вытаскиваем активный id из категорий для фильтрации
+
     const { searchValue } = React.useContext(SearchContext);
     const [dishItems, setDishitems] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
-    const [activeCategories, setActiveCategories] = React.useState(0) //перекидываем стейт из категрий
     React.useEffect(() => {
         async function fetchData() {
             try {
@@ -35,10 +35,13 @@ function Home() {
         }
         fetchData()
     }, [searchValue])
+
+   
+
     return (
         <>
             {!searchValue && <Banner />}
-            <Categories value={activeCategories} onClickCategoies={(id) => setActiveCategories(id)} />
+            <Categories />
             <div className='swiper-wrapper'>
                 <Swiper slidesPerView={5} loop={true} >
                     {isLoading

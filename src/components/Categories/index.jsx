@@ -1,9 +1,20 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 import { SearchContext } from '../../App';
+import { setActiveCategories } from '../../Redux/Slices/categorySlice';
 
 
 
-function Categories({value, onClickCategoies}) {
+function Categories() {
+    const activeCategories = useSelector(state => state.categorySlice.activeCategories); // redux Достем активный id из хранилища
+
+    const dispatch = useDispatch(); //redux вытаскиваем dispatch из библиотеки toolkit;
+    
+    const onClickCategoies = (id) => {
+        dispatch(setActiveCategories(id)) //redux передаем текущий активный id категории в стейт
+    }
+
     const {searchValue} = React.useContext(SearchContext)
     const Categories = ['Холодные закуски', 'Горячие закуски',  'Напитки', 'Супы', 'Рыбные блюда', 'Гриль меню', 'Фирменные блюда']
 
@@ -16,14 +27,14 @@ function Categories({value, onClickCategoies}) {
                                         <li
                                             key={item}
                                             onClick={() => onClickCategoies(id)}
-                                            className={value === id ? "menu-tab__slide  _tab-active" : "menu-tab__slide "}>
+                                            className={activeCategories === id ? "menu-tab__slide  _tab-active" : "menu-tab__slide "}>
                                             <a href="#!">{item}</a>
                                         </li>
                             ))}
                     </ul>
                 </div>
             </div>
-            <div className="title">{searchValue ? `Поиск по ...${searchValue}` : Categories[value]}</div>
+            <div className="title">{searchValue ? `Поиск по ...${searchValue}` : Categories[activeCategories]}</div>
         </section>
     )
 }
