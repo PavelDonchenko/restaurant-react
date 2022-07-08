@@ -2,16 +2,25 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import cartDishImg from '../../assets/img/backet/dish-cart.jpg';
 import CartItems from '../../components/CartItems';
+import axios from 'axios';
+import CartItemAdd from '../../components/CartItemAdd';
 
 
 
 function Cart() {
-    const {items, totalPrice} = useSelector((state) => state.cart);
+    const { items, totalPrice, cartItemsAddtoCart } = useSelector((state) => state.cart);
     const totalCount = items.reduce((sum, item) => sum + item.count, 0)
-    
-    const dispatch = useDispatch()
+    const [cartItemsAdd, setCartItemsAdd] = React.useState([])
+
+
+    React.useEffect(() => {
+        async function getCartItems() {
+            const cartItemsAddResponse = await axios.get('https://62ba0099ff109cd1dc9f5a3f.mockapi.io/cartItemsAdd')
+            setCartItemsAdd(cartItemsAddResponse.data)
+        }
+        getCartItems()
+    }, [])
     return (
         <section className="basket">
             <div className="basket__title title-basket">
@@ -36,65 +45,28 @@ function Cart() {
                 <div className="basket__items items-basket">
                     <div className="items-basket__container">
                         {items.map((item) => (
-                            <CartItems  key = {item.id} {...item}/>
+                            <CartItems 
+                            key={item.id} 
+                            {...item} />
                         ))}
-                        
+                        {cartItemsAddtoCart.map((cartItem) => (
+                            <CartItems
+                            key = {cartItem.id}
+                            {...cartItem}
+                            />
+                        ))}
+
                     </div>
                     <div className="basket__items__to-order">
                         <h2 className="to-order__title title">ДОБАВИТЬ К ЗАКАЗУ</h2>
                         <div className="to-order__items">
-                            <div className="to-order__item-order">
-                                <div className="item-order__img">
-                                    <img src={cartDishImg} alt="foto of dish" />
-                                </div>
-                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                <div className="item-order__add">
-                                    <span className="item-order__text">Добавить</span>
-                                    <button className="item-order__btn quantity-btn">+</button>
-                                </div>
-                                <div className="item-order__price">
-                                    234грн
-                                </div>
-                            </div>
-                            <div className="to-order__item-order">
-                                <div className="item-order__img">
-                                    <img src={cartDishImg} alt="foto of dish" />
-                                </div>
-                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                <div className="item-order__add">
-                                    <span className="item-order__text">Добавить</span>
-                                    <button className="item-order__btn quantity-btn">+</button>
-                                </div>
-                                <div className="item-order__price">
-                                    234грн
-                                </div>
-                            </div>
-                            <div className="to-order__item-order">
-                                <div className="item-order__img">
-                                    <img src={cartDishImg} alt="foto of dish" />
-                                </div>
-                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                <div className="item-order__add">
-                                    <span className="item-order__text">Добавить</span>
-                                    <button className="item-order__btn quantity-btn">+</button>
-                                </div>
-                                <div className="item-order__price">
-                                    234грн
-                                </div>
-                            </div>
-                            <div className="to-order__item-order">
-                                <div className="item-order__img">
-                                    <img src={cartDishImg} alt="foto of dish" />
-                                </div>
-                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                <div className="item-order__add">
-                                    <span className="item-order__text">Добавить</span>
-                                    <button className="item-order__btn quantity-btn">+</button>
-                                </div>
-                                <div className="item-order__price">
-                                    234грн
-                                </div>
-                            </div>
+                            {cartItemsAdd.map((cartItems) => (
+                                <CartItemAdd
+                                key={cartItems.id}
+                                {...cartItems}
+                                />
+                            ))}
+                            
                         </div>
                     </div>
                 </div>

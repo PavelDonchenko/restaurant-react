@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+
 import Banner from '../components/Banner';
 import DishesBlock from "../components/DishesBlock";
 import About from "../components/About";
