@@ -1,9 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import cartDishImg from '../../assets/img/backet/dish-cart.jpg'
+import cartDishImg from '../../assets/img/backet/dish-cart.jpg';
+import CartItems from '../../components/CartItems';
+
+
 
 function Cart() {
+    const {items, totalPrice} = useSelector((state) => state.cart);
+    const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+    
+    const dispatch = useDispatch()
     return (
         <section className="basket">
             <div className="basket__title title-basket">
@@ -19,7 +27,7 @@ function Cart() {
                     </Link>
                     <div className="title-basket__title-wrap">
                         <div className="title-basket__title title">КОРЗИНА</div>
-                        <a href="" className="title-basket__inside">(в корзине 3 товара)</a>
+                        <a href="" className="title-basket__inside">(в корзине {totalCount} товара)</a>
                     </div>
                 </div>
             </div>
@@ -27,87 +35,78 @@ function Cart() {
 
                 <div className="basket__items items-basket">
                     <div className="items-basket__container">
-                        <div className="items-basket__item item-basket">
-                            <div className="item-basket__img" > <img src={cartDishImg} alt="foto of dish" className="item-basket__img" /></div>
-                            <div className='item-basket__discr-block'>
-                                <div className="item-basket__discription">
-                                    <div className="item-basket__title">
-                                        ПИЦЦА ДВОЙНАЯ ПЕППЕРОНИ
-                                    </div>
-                                    <div className="item-basket__text">
-                                        Кальмары, мидии, креветки, сыр маасдам,
-                                        красный лук, микс оливок, базилик, соус песто
-                                    </div>
+                        {items.map((item) => (
+                            <CartItems  key = {item.id} {...item}/>
+                        ))}
+                        
+                    </div>
+                    <div className="basket__items__to-order">
+                        <h2 className="to-order__title title">ДОБАВИТЬ К ЗАКАЗУ</h2>
+                        <div className="to-order__items">
+                            <div className="to-order__item-order">
+                                <div className="item-order__img">
+                                    <img src={cartDishImg} alt="foto of dish" />
                                 </div>
-                                <div className='item-basket__btns-block'>
-                                    <div className="item-basket__quantity">
-                                        <button className='item-basket__btn-Minus quantity-btn'>-</button>
-                                        <span>1</span>
-                                        <button className='item-basket__btn-Plus quantity-btn'>+</button>
-                                    </div>
-                                    <div className="item-basket__total-sum">234грн</div>
-                                    <button className="item-basket__btn-delete quantity-btn">x</button>
+                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
+                                <div className="item-order__add">
+                                    <span className="item-order__text">Добавить</span>
+                                    <button className="item-order__btn quantity-btn">+</button>
+                                </div>
+                                <div className="item-order__price">
+                                    234грн
+                                </div>
+                            </div>
+                            <div className="to-order__item-order">
+                                <div className="item-order__img">
+                                    <img src={cartDishImg} alt="foto of dish" />
+                                </div>
+                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
+                                <div className="item-order__add">
+                                    <span className="item-order__text">Добавить</span>
+                                    <button className="item-order__btn quantity-btn">+</button>
+                                </div>
+                                <div className="item-order__price">
+                                    234грн
+                                </div>
+                            </div>
+                            <div className="to-order__item-order">
+                                <div className="item-order__img">
+                                    <img src={cartDishImg} alt="foto of dish" />
+                                </div>
+                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
+                                <div className="item-order__add">
+                                    <span className="item-order__text">Добавить</span>
+                                    <button className="item-order__btn quantity-btn">+</button>
+                                </div>
+                                <div className="item-order__price">
+                                    234грн
+                                </div>
+                            </div>
+                            <div className="to-order__item-order">
+                                <div className="item-order__img">
+                                    <img src={cartDishImg} alt="foto of dish" />
+                                </div>
+                                <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
+                                <div className="item-order__add">
+                                    <span className="item-order__text">Добавить</span>
+                                    <button className="item-order__btn quantity-btn">+</button>
+                                </div>
+                                <div className="item-order__price">
+                                    234грн
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="basket__items__to-order">
-                            <h2 className="to-order__title title">ДОБАВИТЬ К ЗАКАЗУ</h2>
-                            <div className="to-order__items">
-                                <div className="to-order__item-order">
-                                    <div className="item-order__img">
-                                        <img src={cartDishImg} alt="foto of dish" />
-                                    </div>
-                                    <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                    <div className="item-order__add">
-                                        <span className="item-order__text">Добавить</span>
-                                        <button className="item-order__btn quantity-btn">+</button>
-                                    </div>
-                                    <div className="item-order__price">
-                                        234грн
-                                    </div>
-                                </div>
-                                <div className="to-order__item-order">
-                                    <div className="item-order__img">
-                                        <img src={cartDishImg} alt="foto of dish" />
-                                    </div>
-                                    <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                    <div className="item-order__add">
-                                        <span className="item-order__text">Добавить</span>
-                                        <button className="item-order__btn quantity-btn">+</button>
-                                    </div>
-                                    <div className="item-order__price">
-                                        234грн
-                                    </div>
-                                </div>
-                                <div className="to-order__item-order">
-                                    <div className="item-order__img">
-                                        <img src={cartDishImg} alt="foto of dish" />
-                                    </div>
-                                    <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                    <div className="item-order__add">
-                                        <span className="item-order__text">Добавить</span>
-                                        <button className="item-order__btn quantity-btn">+</button>
-                                    </div>
-                                    <div className="item-order__price">
-                                        234грн
-                                    </div>
-                                </div>
-                                <div className="to-order__item-order">
-                                    <div className="item-order__img">
-                                        <img src={cartDishImg} alt="foto of dish" />
-                                    </div>
-                                    <div className="item-order__title">КВАС АНАНАСОВЫЙ</div>
-                                    <div className="item-order__add">
-                                        <span className="item-order__text">Добавить</span>
-                                        <button className="item-order__btn quantity-btn">+</button>
-                                    </div>
-                                    <div className="item-order__price">
-                                        234грн
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div className="basket-total total-basket">
+                    <div className="total-basket__disc">
+                        <div className="total-basket__sum">Итого: <span>{totalPrice} грн</span></div>
+                        <div className="total-basket_free-delivery">До бесплатной доставки не хватет: <span>100 ₽</span></div>
+                        <div className="total-basket__min-sum">Минимальная сума заказа 1500 ₽</div>
+                    </div>
+                    <div className="total-basket__btn">
+                        <button className="btn-green">Оформить заказ</button>
+                    </div>
                 </div>
             </div>
         </section>

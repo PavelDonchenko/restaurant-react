@@ -28,7 +28,7 @@ function Categories() {
                                             key={item}
                                             onClick={() => onClickCategoies(id)}
                                             className={activeCategories === id ? "menu-tab__slide  _tab-active" : "menu-tab__slide "}>
-                                            <a href="#!">{item}</a>
+                                            <a >{item}</a>
                                         </li>
                             ))}
                     </ul>

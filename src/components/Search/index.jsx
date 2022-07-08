@@ -9,7 +9,7 @@ function Search() {
 
     const updateSearchValue = React.useCallback(debounce((str) => {
         setSearchValue(str)
-    },1000),
+    },500),
     []
     )
     const onChangeInput = (event) => {
@@ -25,7 +25,9 @@ function Search() {
                 className="form-header__input" 
                 placeholder="Поиск блюда" 
                 type="search" />
-                <button className="form-header__button"></button>
+                <button 
+                onClick ={(e) => e.preventDefault()}
+                className="form-header__button"></button>
             </div>
         </form>
     )
