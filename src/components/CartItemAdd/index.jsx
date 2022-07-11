@@ -1,19 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addCartItemsToCart } from '../../Redux/Slices/cartSlice';
+import { addCartItemsToCart, addItems } from '../../Redux/Slices/cartSlice';
 
-function CartItemAdd({ id, title, price, imageUrl, count }) {
-
+function CartItemAdd({ id, title, price, imageUrl, text, count }) {
   const dispatch = useDispatch()
-  const onClickAddCartItem = () => {
 
+  const onClickAddCartItem = () => {
     const item = {
       imageUrl,
       title,
       price,
-      id
+      id,
+      text,
+      count
     }
-    dispatch(addCartItemsToCart(item))
+    dispatch(addItems(item))
   }
   return (
     <div className="to-order__item-order">

@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Banner from '../components/Banner';
 import DishesBlock from "../components/DishesBlock";
@@ -12,32 +11,25 @@ import Skeleton from '../components/DishesBlock/Skeleton';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { SearchContext } from '../App';
-
+import { fetchDish } from '.././Redux/Slices/dishSlice'
 
 
 
 function Home() {
     const activeCategories = useSelector(state => state.categorySlice.activeCategories); //redux вытаскиваем активный id из категорий для фильтрации
-
+    const { dishItems, status } = useSelector((state) => state.dish);
+    const dispatch = useDispatch()
     const { searchValue } = React.useContext(SearchContext);
-    const [dishItems, setDishitems] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(true);
+
     React.useEffect(() => {
         async function fetchData() {
-            try {
-                const search = searchValue ? `?search=${searchValue}` : '';
-                const dishesItemResponse = await axios.get(`https://62ba0099ff109cd1dc9f5a3f.mockapi.io/dishes${search}`);
-                setDishitems(dishesItemResponse.data);
-                setIsLoading(false)
-            }
-            catch (Error) {
-                console.log('error, problem with getting dishes');
-            }
+            const search = searchValue ? `?search=${searchValue}` : '';
+            dispatch(fetchDish({ search }))
         }
         fetchData()
     }, [searchValue])
 
-   
+
 
     return (
         <>
@@ -45,7 +37,7 @@ function Home() {
             <Categories />
             <div className='swiper-wrapper'>
                 <Swiper slidesPerView={5} loop={true} >
-                    {isLoading
+                    {status === 'loading'
                         ? [...new Array(6)].map((_, id) => <SwiperSlide key={id}><Skeleton key={id} /></SwiperSlide>)
                         : (
                             dishItems.filter((elem) => elem.category === activeCategories).map((dish) => (
@@ -65,7 +57,7 @@ function Home() {
                     <div className="dish__title title">ХОЛОДНЫЕ ЗАКУСКИ</div>
                     <div className='swiper-wrapper'>
                         <Swiper slidesPerView={5} loop={true} >
-                            {isLoading
+                            {status === 'loading'
                                 ? [...new Array(6)].map((_, id) => <SwiperSlide key={id}><Skeleton key={id} /></SwiperSlide>)
                                 : (
                                     dishItems.filter((elem) => elem.category === 0).map((dish) => (
@@ -87,7 +79,7 @@ function Home() {
                     <div className="dish__title title">ГОРЯЧИЕ ЗАКУСКИ</div>
                     <div className="swiper-wrapper">
                         <Swiper slidesPerView={5} loop={true}>
-                            {isLoading
+                            {status === 'loading'
                                 ? [...new Array(6)].map((_, id) => <SwiperSlide key={id}><Skeleton key={id} /></SwiperSlide>)
                                 : (
                                     dishItems.filter((elem) => elem.category === 1).map((dish) => (

@@ -1,26 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CartItems from '../../components/CartItems';
-import axios from 'axios';
 import CartItemAdd from '../../components/CartItemAdd';
-
+import axios from 'axios'
 
 
 function Cart() {
-    const { items, totalPrice, cartItemsAddtoCart } = useSelector((state) => state.cart);
+    const { items, totalPrice } = useSelector((state) => state.cart);
     const totalCount = items.reduce((sum, item) => sum + item.count, 0)
-    const [cartItemsAdd, setCartItemsAdd] = React.useState([])
-
-
+    const [cartDish, setCartDish] = React.useState([])
     React.useEffect(() => {
-        async function getCartItems() {
-            const cartItemsAddResponse = await axios.get('https://62ba0099ff109cd1dc9f5a3f.mockapi.io/cartItemsAdd')
-            setCartItemsAdd(cartItemsAddResponse.data)
+        async function getDishes() {
+            const dishData = await axios('https://62ba0099ff109cd1dc9f5a3f.mockapi.io/dishes')
+            setCartDish(dishData.data)
         }
-        getCartItems()
+        getDishes()
     }, [])
+
     return (
         <section className="basket">
             <div className="basket__title title-basket">
@@ -45,28 +43,21 @@ function Cart() {
                 <div className="basket__items items-basket">
                     <div className="items-basket__container">
                         {items.map((item) => (
-                            <CartItems 
-                            key={item.id} 
-                            {...item} />
-                        ))}
-                        {cartItemsAddtoCart.map((cartItem) => (
                             <CartItems
-                            key = {cartItem.id}
-                            {...cartItem}
-                            />
+                                key={item.id}
+                                {...item} />
                         ))}
-
                     </div>
                     <div className="basket__items__to-order">
                         <h2 className="to-order__title title">ДОБАВИТЬ К ЗАКАЗУ</h2>
                         <div className="to-order__items">
-                            {cartItemsAdd.map((cartItems) => (
+                            {cartDish.filter((_,id) => id < 4).map((cartItems) => (
                                 <CartItemAdd
-                                key={cartItems.id}
-                                {...cartItems}
+                                    key={cartItems.id}
+                                    {...cartItems}
                                 />
                             ))}
-                            
+
                         </div>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ function CartItems({ id, imageUrl, title, text, price, count }) {
                         <span>{count}</span>
                         <button onClick={onClickPlus} className='item-basket__btn-Plus quantity-btn'>+</button>
                     </div>
-                    <div className="item-basket__total-sum">{price}грн</div>
+                    <div className="item-basket__total-sum">{price * count}грн</div>
                     <button onClick={removeCartItems} className="item-basket__btn-delete quantity-btn">x</button>
                 </div>
             </div>
