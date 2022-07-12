@@ -92,6 +92,10 @@
 		font-size: 14px;
 		padding: rem(7) rem(14) rem(7) rem(24);
 		position: relative;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			background: linear-gradient(114.93deg, #88af8e 5.11%, #3b8845 94%);
+		}
 		@media (max-width: $mobile) {
 			background: #618967 url("../../assets/img/icons/Buy.svg") center 3px no-repeat;
 			flex-direction: column;

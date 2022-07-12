@@ -1,12 +1,27 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
+import React from 'react';
+
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import EmptyCart from '../EmptyCart';
 import Search from '../Search';
 
+
 function Header() {
-	const {items} = useSelector((state) => state.cart)
+	const { items } = useSelector((state) => state.cart)
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+	const [emptyCart, setemptyCart] = React.useState(false)
+	console.log(emptyCart);
+
+
+	const onClickCartOpen = () => {
+		!totalCount && setemptyCart(true)
+	}
+
+	const onClickCartClose = () => {
+		setemptyCart(false)
+	}
+
+
 	return (
 		<header className="header" id="header">
 			<section className="header__top top-header">
@@ -26,10 +41,15 @@ function Header() {
 						<a href="tel:+79175105759" className="contact-tel__phone"><span>Контакты:<br /></span>+7 (917) 510-57-59</a>
 
 					</div>
-					<Link className="linkRight" to="cart"><button type="button" className="top-header__btn">Корзина<span>{totalCount}</span></button></Link>
+					<Link to="cart" className="linkRight" ><button onClick={onClickCartOpen} type="button" className="top-header__btn">Корзина<span>{totalCount}</span></button></Link>
 				</div>
 			</section>
-
+			{emptyCart && (
+				<EmptyCart
+					emptyCart={emptyCart}
+					onClickCartClose={onClickCartClose}
+				/>
+			)}
 		</header>
 
 	)

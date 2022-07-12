@@ -11,6 +11,7 @@ import './assets/dynamic_adapt.js';
 import Home from "./Pages/Home";
 import Cart from "./Pages/Cart/Cart";
 import Footer from "./components/Footer";
+import DishCard from './Pages/DishCard';
 
 export const SearchContext = React.createContext()
 
@@ -18,6 +19,7 @@ export const SearchContext = React.createContext()
 
 function App() {
   const [searchValue, setSearchValue] = React.useState('')
+  
   return (
     <div className="App">
       <div className="wrapper">
@@ -27,6 +29,7 @@ function App() {
             <Routes >
               <Route path = '/' element =  {<Home />} />
               <Route path = '/cart' element =  {<Cart />} />
+              <Route path = '/dishCard/:id' element =  {<DishCard />} />
             </Routes>
           </main>
           <Footer />

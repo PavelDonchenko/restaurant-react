@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItems, plusItems, minusItems } from '../../Redux/Slices/cartSlice';
+import { addItems, minusItems } from '../../Redux/Slices/cartSlice';
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,7 +30,7 @@ function DishesBlock({ id, imageUrl, title, text, price, weight}) {
     return (
 
         <div className="dish__slide slide-dish swiper-slide">
-            <img src={imageUrl} className="slide-dish__img" alt="Блюдо1" />
+            <Link to = {`dishCard/${id}`}><img src={imageUrl} className="slide-dish__img" alt="Блюдо1" /></Link>
             <div className="slide-dish__subscribe subscribe-dish">
                 <div className="subscribe-dish__title title-subscribe">
                     <h3 className="itle-subscribe__name">{title}</h3>
