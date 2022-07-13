@@ -1,4 +1,4 @@
-function Banner() {
+const Banner: React.FC = () => {
     return(
         <section className="banner banner__bg-img">
 		</section>

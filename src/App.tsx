@@ -13,17 +13,13 @@ import Cart from "./Pages/Cart/Cart";
 import Footer from "./components/Footer";
 import DishCard from './Pages/DishCard';
 
-export const SearchContext = React.createContext()
-
 
 
 function App() {
-  const [searchValue, setSearchValue] = React.useState('')
   
   return (
     <div className="App">
       <div className="wrapper">
-        <SearchContext.Provider value = {{searchValue, setSearchValue}}>
           <Header />
           <main className="page">
             <Routes >
@@ -33,7 +29,6 @@ function App() {
             </Routes>
           </main>
           <Footer />
-        </SearchContext.Provider>
       </div>
     </div>
   );

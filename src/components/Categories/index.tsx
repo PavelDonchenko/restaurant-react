@@ -1,21 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { SearchContext } from '../../App';
 import { setActiveCategories } from '../../Redux/Slices/categorySlice';
 
 
 
-function Categories() {
-    const activeCategories = useSelector(state => state.categorySlice.activeCategories); // redux Достем активный id из хранилища
-
+const Categories: React.FC = () => {
+    const activeCategories = useSelector((state: any) => state.categorySlice.activeCategories); // redux Достем активный id из хранилища
+    const searchValue = useSelector((state: any) => state.search.searchValue)
     const dispatch = useDispatch(); //redux вытаскиваем dispatch из библиотеки toolkit;
     
-    const onClickCategoies = (id) => {
+    const onClickCategoies = (id: number) => {
         dispatch(setActiveCategories(id)) //redux передаем текущий активный id категории в стейт
     }
 
-    const {searchValue} = React.useContext(SearchContext)
     const Categories = ['Холодные закуски', 'Горячие закуски',  'Напитки', 'Супы', 'Рыбные блюда', 'Гриль меню', 'Фирменные блюда']
 
     return (

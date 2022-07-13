@@ -10,7 +10,6 @@ function Header() {
 	const { items } = useSelector((state) => state.cart)
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 	const [emptyCart, setemptyCart] = React.useState(false)
-	console.log(emptyCart);
 
 
 	const onClickCartOpen = () => {

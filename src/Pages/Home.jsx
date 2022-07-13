@@ -10,7 +10,6 @@ import Skeleton from '../components/DishesBlock/Skeleton';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { SearchContext } from '../App';
 import { fetchDish } from '.././Redux/Slices/dishSlice'
 
 
@@ -19,8 +18,7 @@ function Home() {
     const activeCategories = useSelector(state => state.categorySlice.activeCategories); //redux вытаскиваем активный id из категорий для фильтрации
     const { dishItems, status } = useSelector((state) => state.dish);
     const dispatch = useDispatch()
-    const { searchValue } = React.useContext(SearchContext);
-
+    const searchValue = useSelector(state => state.search.searchValue)
     React.useEffect(() => {
         async function fetchData() {
             const search = searchValue ? `?search=${searchValue}` : '';

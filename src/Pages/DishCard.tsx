@@ -9,10 +9,15 @@ import { addItems } from '../Redux/Slices/cartSlice';
 function DishCard() {
    
     const {id} = useParams()
-    const [dish, setDish] = React.useState([])
+    const [dish, setDish] = React.useState<{
+		imageUrl: string,
+		text: string,
+		title: string,
+		count: number,
+		weight: number,
+		price: number,
+	}>()
     const navigate = useNavigate()
-
-    const {imageUrl, text, title, price, count} = dish
 
     React.useEffect(() => {
         async function fetchDish(){
@@ -36,10 +41,14 @@ function DishCard() {
         price,
         id,
         text,
-        count
+        count,
       }
       dispatch(addItems(item))
     }
+	
+	if(!dish){
+		return <>Идет загрузка...</>
+	}
 
   return (
     <section className="card">

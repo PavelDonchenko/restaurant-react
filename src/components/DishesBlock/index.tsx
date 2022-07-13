@@ -3,11 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItems, minusItems } from '../../Redux/Slices/cartSlice';
 import { Link } from 'react-router-dom';
 
+type DishesBlockProps = {
+    id: string;
+    title: string;
+    price: number;
+    imageUrl: string;
+    text: string;
+    count: number;
+    weight: string;
+  };
 
-
-function DishesBlock({ id, imageUrl, title, text, price, weight}) {
+const DishesBlock: React.FC<DishesBlockProps> = ({ id, imageUrl, title, text, price, weight}) => {
+    console.log(typeof(id));
+        
     const dispatch = useDispatch()
-    const cartItems = useSelector((state) => state.cart.items.find((obj) => obj.id === id))
+    const cartItems = useSelector((state:any) => state.cart.items.find((obj:any) => obj.id === id))
     const addedCount = cartItems ? cartItems.count : null
 
     const onClickAdd = () => {
