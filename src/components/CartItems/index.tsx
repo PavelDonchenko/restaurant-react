@@ -36,7 +36,7 @@ const CartItems: React.FC <CartItemsProps>= ({ id, imageUrl, title, text, price,
                 </div>
                 <div className='item-basket__btns-block'>
                     <div className="item-basket__quantity">
-                        <button onClick={onClickMinus}  className='item-basket__btn-Minus quantity-btn'>-</button>
+                        <button disabled = {count === 1} onClick={onClickMinus}  className= 'item-basket__btn-Minus quantity-btn'>-</button>
                         <span>{count}</span>
                         <button onClick={onClickPlus} className='item-basket__btn-Plus quantity-btn'>+</button>
                     </div>

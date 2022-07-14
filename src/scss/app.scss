@@ -885,6 +885,16 @@ body {
     &:active {
         box-shadow: 0 0 2px 2px #72a479;
     }
+    &:disabled{
+        opacity: 0.5;
+    &:hover{
+        background: #72a479;
+    }
+    &:active{
+        box-shadow: none;
+    }
+    }
+    
 }
 
 .to-order {

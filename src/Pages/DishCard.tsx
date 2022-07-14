@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { Link } from 'react-router-dom';
 import arrowIcon from '../assets/img/card/arrow-back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useDispatch } from 'react-redux/es/exports';
 import { addItems } from '../Redux/Slices/cartSlice';
+import { useAppDispatch } from '../Redux/store';
 
 function DishCard() {
-   
+
     const {id} = useParams()
     const [dish, setDish] = React.useState<{
 		imageUrl: string,
@@ -16,7 +16,9 @@ function DishCard() {
 		count: number,
 		weight: number,
 		price: number,
+		id: string,
 	}>()
+	
     const navigate = useNavigate()
 
     React.useEffect(() => {
@@ -32,18 +34,12 @@ function DishCard() {
         fetchDish()
     }, [])
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const onClickAddCartItem = () => {
-      const item = {
-        imageUrl,
-        title,
-        price,
-        id,
-        text,
-        count,
-      }
-      dispatch(addItems(item))
+		if(dish){
+			dispatch(addItems(dish))
+		}
     }
 	
 	if(!dish){

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItems, minusItems } from '../../Redux/Slices/cartSlice';
+import { addItems, Items, minusItems } from '../../Redux/Slices/cartSlice';
 import { Link } from 'react-router-dom';
 
 type DishesBlockProps = {
@@ -14,19 +14,19 @@ type DishesBlockProps = {
   };
 
 const DishesBlock: React.FC<DishesBlockProps> = ({ id, imageUrl, title, text, price, weight}) => {
-    console.log(typeof(id));
-        
     const dispatch = useDispatch()
     const cartItems = useSelector((state:any) => state.cart.items.find((obj:any) => obj.id === id))
     const addedCount = cartItems ? cartItems.count : null
 
     const onClickAdd = () => {
-        const item = {
+        const item: Items = {
             imageUrl,
             title,
             text,
             price,
-            id
+            id,
+            count: 0,
+            weight: 0,
         }
         dispatch(addItems(item))
     }

@@ -1,6 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-const initialState = {
+type CategorySlice = {
+    activeCategories: number;
+}
+const initialState: CategorySlice = {
     activeCategories: 0,
 }
 
@@ -8,7 +11,7 @@ const categorySlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
-        setActiveCategories(state, action) {
+        setActiveCategories(state, action: PayloadAction<number>) {
             state.activeCategories = action.payload
         },
     }

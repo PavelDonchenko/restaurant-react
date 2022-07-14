@@ -10,8 +10,8 @@ const Categories: React.FC = () => {
     const searchValue = useSelector((state: any) => state.search.searchValue)
     const dispatch = useDispatch(); //redux вытаскиваем dispatch из библиотеки toolkit;
     
-    const onClickCategoies = (id: number) => {
-        dispatch(setActiveCategories(id)) //redux передаем текущий активный id категории в стейт
+    const onClickCategoies = (index: number) => {
+        dispatch(setActiveCategories(index)) //redux передаем текущий активный id категории в стейт
     }
 
     const Categories = ['Холодные закуски', 'Горячие закуски',  'Напитки', 'Супы', 'Рыбные блюда', 'Гриль меню', 'Фирменные блюда']
