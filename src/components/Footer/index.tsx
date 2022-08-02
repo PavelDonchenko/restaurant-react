@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 
-function Footer() {
+const Footer: FC = () => {
     return (
         <footer className="footer">
             <div className="footer__container">
@@ -21,8 +22,8 @@ function Footer() {
                     </div>
                 </div>
                 <ul data-da=".menu__body, 767, 1" className="footer__menu menu-footer">
-                    <li className="menu-footer__item"><a href="#">О ресторане</a></li>
-                    <li className="menu-footer__item"><a href="#">Условия доставки </a></li>
+                    <li className="menu-footer__item"><a href="#about">О ресторане</a></li>
+                    <Link to='/delivery'><li className="menu-footer__item"><a>Условия доставки </a></li></Link>
                     <li className="menu-footer__item"><a href="#">Возврат товара </a></li>
                     <li className="menu-footer__item"><a href="#">Акции</a></li>
                 </ul>

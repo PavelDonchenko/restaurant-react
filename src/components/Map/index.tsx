@@ -16,7 +16,7 @@ function Map() {
                         <div className="post-map__text">auto.wash@gmail.com</div>
                     </div>
                     <div className="contacts-map__phone phone-map">
-                        <button type="submit" className="phone-map__button btn-green">ЗАБРОНИРОВАТЬ СТОЛ</button>
+                        <a href="tel:79175105759" type="submit" className="phone-map__button btn-green">ЗАБРОНИРОВАТЬ СТОЛ</a>
                         <button type="submit" className="phone-map__button-hover">ПРОЛОЖИТЬ МАРШРУТ</button>
                         <div className="phone-map__tel tel-phone">
                             <a href="tel:79175105759" className="tel-phone__number">+7(917)510-57-59</a>

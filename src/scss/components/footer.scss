@@ -74,6 +74,9 @@
 .menu-footer {
     display: flex;
     flex-wrap: wrap;
+    @media (max-width:$mobile){
+        display: none;
+    }
     // .menu-footer__item
     &__item {
         @include adaptiveValue("margin-right",40 ,10 );

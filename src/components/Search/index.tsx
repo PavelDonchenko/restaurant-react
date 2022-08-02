@@ -8,12 +8,13 @@ function Search() {
     const dispatch = useDispatch()
 
 
-    const updateSearchValue = React.useCallback(debounce((str) => {
+    const updateSearchValue = React.useCallback(debounce((str:string) => {
         dispatch(setSearchValue(str))
     },500),
     []
     )
-    const onChangeInput = (event) => {
+    
+    const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value)
         updateSearchValue(event.target.value)
     }

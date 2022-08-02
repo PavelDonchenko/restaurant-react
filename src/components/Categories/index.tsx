@@ -2,12 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setActiveCategories } from '../../Redux/Slices/categorySlice';
+import { RootState } from '../../Redux/store';
 
 
 
 const Categories: React.FC = () => {
-    const activeCategories = useSelector((state: any) => state.categorySlice.activeCategories); // redux Достем активный id из хранилища
-    const searchValue = useSelector((state: any) => state.search.searchValue)
+    const activeCategories = useSelector((state: RootState) => state.categorySlice.activeCategories); // redux Достем активный id из хранилища
+    const searchValue = useSelector((state: RootState) => state.search.searchValue)
     const dispatch = useDispatch(); //redux вытаскиваем dispatch из библиотеки toolkit;
     
     const onClickCategoies = (index: number) => {

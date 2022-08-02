@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type Items = {
+  category: number,
   id: string;
   title: string;
   price: number;

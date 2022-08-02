@@ -3,7 +3,6 @@
 // e.x. data-da=".item,992,2"
 // Andrikanych Yevhen 2020
 // https://www.youtube.com/c/freelancerlifestyle
-
 function DynamicAdapt(type) {
 	this.type = type;
 }
@@ -145,7 +144,7 @@ DynamicAdapt.prototype.arraySort = function (arr) {
 	}
 };
 const da = new DynamicAdapt("max");
-export default da.init();
+da.init();
 
 //================================================================
 let bodyLockStatus = true;
