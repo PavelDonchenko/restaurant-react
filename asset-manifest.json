@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/PavelDonchenko/restaurant-react/static/css/main.66998949.css",
+    "main.js": "/PavelDonchenko/restaurant-react/static/js/main.5bf39ef8.js",
+    "static/js/178.545ec6b7.chunk.js": "/PavelDonchenko/restaurant-react/static/js/178.545ec6b7.chunk.js",
+    "static/js/283.e059c1b6.chunk.js": "/PavelDonchenko/restaurant-react/static/js/283.e059c1b6.chunk.js",
+    "static/js/173.14f35242.chunk.js": "/PavelDonchenko/restaurant-react/static/js/173.14f35242.chunk.js",
+    "static/media/header-banner.jpg": "/PavelDonchenko/restaurant-react/static/media/header-banner.2e1dda95766a3b4c5bf5.jpg",
+    "static/media/about.jpg": "/PavelDonchenko/restaurant-react/static/media/about.7f1c28806627d1cde32e.jpg",
+    "static/media/map.jpg": "/PavelDonchenko/restaurant-react/static/media/map.c3597e53bf7ffdfd0ff0.jpg",
+    "static/media/delivery-map.jpg": "/PavelDonchenko/restaurant-react/static/media/delivery-map.44cf031ffdc6e42b21c0.jpg",
+    "static/media/shopping-bag.svg": "/PavelDonchenko/restaurant-react/static/media/shopping-bag.75222d3e3db0837fffaf.svg",
+    "static/media/Buy.svg": "/PavelDonchenko/restaurant-react/static/media/Buy.d80ecdbf9121d4d4ccf5.svg",
+    "static/media/clock .svg": "/PavelDonchenko/restaurant-react/static/media/clock .d925b2809916e9e941e2.svg",
+    "index.html": "/PavelDonchenko/restaurant-react/index.html",
+    "static/media/Location.svg": "/PavelDonchenko/restaurant-react/static/media/Location.0f1c039b0008939f8f50.svg",
+    "static/media/Location-green.svg": "/PavelDonchenko/restaurant-react/static/media/Location-green.491c71fa22fe546c3d69.svg",
+    "static/media/Message.svg": "/PavelDonchenko/restaurant-react/static/media/Message.239d7b19fb9528eb56bf.svg",
+    "static/media/check.svg": "/PavelDonchenko/restaurant-react/static/media/check.25e6b5e125a1ff4feb2b.svg",
+    "static/media/arrow-back.svg": "/PavelDonchenko/restaurant-react/static/media/arrow-back.fa856fe6c88b3a04242d4b53c7a105cb.svg",
+    "static/media/Search.svg": "/PavelDonchenko/restaurant-react/static/media/Search.9b993bb222ce15dc1e17.svg",
+    "static/media/plus.svg": "/PavelDonchenko/restaurant-react/static/media/plus.3906ff36bda4e1f00d7a.svg",
+    "static/media/minus.svg": "/PavelDonchenko/restaurant-react/static/media/minus.f563b441131117fb5e6b.svg",
+    "static/media/select.svg": "/PavelDonchenko/restaurant-react/static/media/select.c2c7b8077dadfe65a918.svg",
+    "main.66998949.css.map": "/PavelDonchenko/restaurant-react/static/css/main.66998949.css.map",
+    "main.5bf39ef8.js.map": "/PavelDonchenko/restaurant-react/static/js/main.5bf39ef8.js.map",
+    "178.545ec6b7.chunk.js.map": "/PavelDonchenko/restaurant-react/static/js/178.545ec6b7.chunk.js.map",
+    "283.e059c1b6.chunk.js.map": "/PavelDonchenko/restaurant-react/static/js/283.e059c1b6.chunk.js.map",
+    "173.14f35242.chunk.js.map": "/PavelDonchenko/restaurant-react/static/js/173.14f35242.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66998949.css",
+    "static/js/main.5bf39ef8.js"
+  ]
+}
