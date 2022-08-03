@@ -87,7 +87,7 @@ function DishCard() {
                 alt="icon"
               />
             </a>
-            <img src={`/${dish.imageUrl}`} alt="фото ягненка" />
+            <img src={`${dish.imageUrl}`} alt="фото ягненка" />
           </div>
           <div className="item-card__description description-card">
             <h3 className="description-card__title">{dish.title}</h3>

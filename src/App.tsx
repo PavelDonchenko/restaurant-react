@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import "./scss/app.scss";
-import "./assets/dynamic_adapt.js";
 import Home from "./Pages/Home";
 import { DeliveryConditions } from "./Pages/DeliveryConditions";
 import { DeliveryForm } from "./Pages/DeliveryForm";
