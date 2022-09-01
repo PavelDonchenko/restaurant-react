@@ -1,6 +1,5 @@
 @import "./components/all.scss";
 @import "./fonts.scss";
-@import "./variables.scss";
 //@use "sass:math";
 // Подключение миксинов ===========================================================================================================================================================================================================================================================================
 @import "./mixins";
@@ -1676,15 +1675,15 @@ body {
     height: 60px;
     width: 100%;
     background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
-    background: url('../assets/img/form/select.svg')  93% 50% no-repeat;
+    background: url("../assets/img/form/select.svg") 93% 50% no-repeat;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 0 15px;
     color: #fff;
     appearance: none;
     outline: none;
-     option{
-       color: #0000;
-       padding: 40px;
+    option {
+        color: #0000;
+        padding: 40px;
     }
 }

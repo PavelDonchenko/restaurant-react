@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Dispatch } from 'react';
 import { Link } from 'react-router-dom';
-import arrowIcon from '../assets/img/card/arrow-back.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+
+import arrowIcon from '../assets/img/card/arrow-back.svg';
 import { addItems, Items } from '../Redux/Slices/cartSlice';
 import { useAppDispatch } from '../Redux/store';
 

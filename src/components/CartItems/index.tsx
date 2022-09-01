@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+
 import {
   plusItems,
   minusItems,
@@ -22,7 +23,6 @@ const CartItems: React.FC<CartItemsProps> = ({
   price,
   count,
 }) => {
-    
   const dispatch = useDispatch();
   const onClickPlus = () => {
     dispatch(plusItems(id));

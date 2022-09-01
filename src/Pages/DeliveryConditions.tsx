@@ -1,43 +1,9 @@
 import React, { FC } from 'react';
-import { Accordion } from '../components/Accordion/Accordion';
 
-type QuestionsAnswers = {
-  question: string;
-  answer: string;
-};
-const questionsAnswers = [
-  {
-    question: 'У наших курьеров всегда должна быть сдача!',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-  {
-    question: 'Вам что-то не довезли?',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-  {
-    question: 'Не понравился продукт?',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-  {
-    question: 'Если появились замечания',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-  {
-    question: 'Оплата Visa, MasterCard и МИР',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-  {
-    question: 'Реквизиты',
-    answer:
-      'Мы очень внимательно следим за качеством нашей работы, поэтому, если у вас будут какие-либо замечания или предложения, то обязательно сообщайте их нам',
-  },
-];
-export const DeliveryConditions: FC = () => {
+import { Accordion } from '../components/Accordion/Accordion';
+import { questionsAnswers } from '../data/AccordionData';
+
+const DeliveryConditions: FC = () => {
   return (
     <div className="delivery__container">
       <h1 className="delivery__title title">Условия доставки</h1>
@@ -75,3 +41,4 @@ export const DeliveryConditions: FC = () => {
     </div>
   );
 };
+export default DeliveryConditions;

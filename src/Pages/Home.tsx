@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 import Banner from '../components/Banner';
 import DishesBlock from '../components/DishesBlock';
@@ -8,8 +10,6 @@ import Map from '../components/Map';
 import Categories from '../components/Categories';
 import Skeleton from '../components/DishesBlock/Skeleton';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import { fetchDish } from '../Redux/Slices/dishSlice';
 import { RootState, useAppDispatch } from '../Redux/store';
 
@@ -18,7 +18,7 @@ function Home() {
     (state: RootState) => state.categorySlice.activeCategories
   ); //redux вытаскиваем активный id из категорий для фильтрации
   const { dishItems, status } = useSelector((state: RootState) => state.dish);
-  
+
   const dispatch = useAppDispatch();
   const searchValue = useSelector(
     (state: RootState) => state.search.searchValue

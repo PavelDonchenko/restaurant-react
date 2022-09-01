@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import ReactSelect from 'react-select';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-export const DeliveryForm: FC = () => {
+const DeliveryForm: FC = () => {
   const [delivery, setDelivery] = React.useState<number>(0);
 
   interface IDeliveryFields {
@@ -18,7 +17,6 @@ export const DeliveryForm: FC = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    control,
   } = useForm<IDeliveryFields>({
     mode: 'onChange',
   });
@@ -27,32 +25,6 @@ export const DeliveryForm: FC = () => {
     alert('Ваш заказ оформлен');
     reset();
   };
-
-  interface IOption {
-    value: string;
-    label: string;
-  }
-  const options: IOption[] = [
-    {
-      value: 'ресторан1',
-      label: 'Ресторан1',
-    },
-    {
-      value: 'ресторан2',
-      label: 'Ресторан2',
-    },
-    {
-      value: 'ресторан3',
-      label: 'Ресторан3',
-    },
-    {
-      value: 'ресторан4',
-      label: 'Ресторан4',
-    },
-  ];
-
-  const getValue = (value: string) =>
-    value ? options.find((option) => option.value === value) : '';
 
   return (
     <div className="form__container">
@@ -203,3 +175,5 @@ export const DeliveryForm: FC = () => {
     </div>
   );
 };
+
+export default DeliveryForm;

@@ -1,17 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
 import CartItems from '../components/CartItems';
 import CartItemAdd from '../components/CartItemAdd';
-import axios from 'axios';
 import { Items } from '../Redux/Slices/cartSlice';
 import { RootState } from '../Redux/store';
 
-function Cart() {
+const Cart: FC = () => {
   const { items, totalPrice } = useSelector((state: RootState) => state.cart);
   const totalCount = items.reduce((sum, item) => sum + item.count, 0);
   const [cartDish, setCartDish] = React.useState<Items[]>();
+  
   React.useEffect(() => {
     async function getDishes() {
       const dishData = await axios(
@@ -83,7 +85,9 @@ function Cart() {
             </div>
           </div>
           <div className="total-basket__btn">
-            <Link to = "/delivery-form"><button className="btn-green">Оформить заказ</button></Link>
+            <Link to="/delivery-form">
+              <button className="btn-green">Оформить заказ</button>
+            </Link>
           </div>
         </div>
       </div>

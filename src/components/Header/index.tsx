@@ -1,7 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
 import { RootState } from '../../Redux/store';
 import EmptyCart from '../EmptyCart';
 import Search from '../Search';
@@ -9,10 +10,7 @@ import Search from '../Search';
 const Header = () => {
   const [isBurgerOpen, setIsBurgerOpen] = React.useState('');
   const { items } = useSelector((state: RootState) => state.cart);
-  const totalCount = items.reduce(
-    (sum, item) => sum + item.count,
-    0
-  );
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
   const [emptyCart, setemptyCart] = React.useState(false);
 
   const onClickCartOpen = () => {
@@ -40,7 +38,7 @@ const Header = () => {
             </button>
             <nav className="menu">
               <ul
-              onClick = {() => setIsBurgerOpen('')}
+                onClick={() => setIsBurgerOpen('')}
                 className={isBurgerOpen ? 'header-menu _active' : 'header-menu'}
               >
                 <li className="header-menu__item">
@@ -52,12 +50,12 @@ const Header = () => {
                     +7 (917) 510-57-59
                   </a>
                 </li>
-                <Link to ="/">
-                  <li  className="header-menu__item">
+                <Link to="/">
+                  <li className="header-menu__item">
                     <a href="#about">О ресторане</a>
                   </li>
                 </Link>
-                <Link to='/delivery'>
+                <Link to="/delivery">
                   <li className="header-menu__item">
                     <a>Условия доставки</a>
                   </li>

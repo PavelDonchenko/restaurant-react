@@ -1,18 +1,18 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
-import { Items } from "./cartSlice";
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { Items } from './cartSlice';
 
 type FetchDishArg = {
   search: string;
 };
 
 interface DishSliceState {
-  status: "loading" | "succes" | "error";
+  status: 'loading' | 'succes' | 'error';
   dishItems: Items[];
 }
 
 export const fetchDish = createAsyncThunk(
-  "dish/fetchDishStatus",
+  'dish/fetchDishStatus',
   async (params: FetchDishArg) => {
     const { search } = params;
     const dishesItemResponse = await axios.get<Items[]>(
@@ -24,11 +24,11 @@ export const fetchDish = createAsyncThunk(
 
 const initialState: DishSliceState = {
   dishItems: [],
-  status: "loading",
+  status: 'loading',
 };
 
 const dishSlice = createSlice({
-  name: "dish",
+  name: 'dish',
   initialState,
   reducers: {
     setDishes(state, action: PayloadAction<Items[]>) {
@@ -37,15 +37,15 @@ const dishSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchDish.pending, (state) => {
-      state.status = "loading";
+      state.status = 'loading';
       state.dishItems = [];
     });
     builder.addCase(fetchDish.fulfilled, (state, action) => {
       state.dishItems = action.payload;
-      state.status = "succes";
+      state.status = 'succes';
     });
     builder.addCase(fetchDish.rejected, (state) => {
-      state.status = "error";
+      state.status = 'error';
       state.dishItems = [];
     });
   },
